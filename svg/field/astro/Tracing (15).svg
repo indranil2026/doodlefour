@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="42">
+<path style="fill:#000000; stroke:none;" d="M18 4.47222C-3.07619 8.29934 1.89872 41.1165 23 37.6674C44.6947 34.1214 39.5462 0.559769 18 4.47222z"/>
+<path style="fill:#ffffff; stroke:none;" d="M19 5.50772C-0.500601 8.23871 2.28875 38.5924 22 36.581C42.1557 34.5242 38.867 2.72542 19 5.50772z"/>
+<path style="fill:#000000; stroke:none;" d="M12.3573 10.0818C9.42706 11.9491 12.8332 15.5382 15.3819 13.767C18.0483 11.9141 14.8901 8.46763 12.3573 10.0818M24 10L28 13L29 12L29 10L28 9L24 10z"/>
+<path style="fill:#ffffff; stroke:none;" d="M11 11L13 14L16 13L16 11L15 10L11 11z"/>
+<path style="fill:#000000; stroke:none;" d="M31 16L30 20L34 19L34 17L33 16L31 16M20.1736 19.1713C17.8025 19.5865 18.4564 23.2437 20.8264 22.8287C23.1975 22.4135 22.5436 18.7563 20.1736 19.1713z"/>
+<path style="fill:#ffffff; stroke:none;" d="M31 18L32 19L31 18z"/>
+<path style="fill:#000000; stroke:none;" d="M7 20L7 21L11 22L11 19L7 20z"/>
+<path style="fill:#ffffff; stroke:none;" d="M19 20L19 22L22 22L22 20L19 20z"/>
+<path style="fill:#000000; stroke:none;" d="M25.6427 28.0671C23.4527 29.6896 26.4036 32.3802 28.3573 30.9329C30.5473 29.3104 27.5964 26.6198 25.6427 28.0671z"/>
+<path style="fill:#ffffff; stroke:none;" d="M25 29L25 30L28 31L28 28L25 29z"/>
+<path style="fill:#000000; stroke:none;" d="M12 31L12 32L17 32L12 31z"/>
+</svg>

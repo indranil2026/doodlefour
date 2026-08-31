@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#ffffff">
+  <title>DoodleFour Race — Real-Time 2-Player Mobile Race</title>
+  <meta name="description" content="A fast, competitive real-time 2-player mobile race game. Navigate SVG obstacles to reach the goal first!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║           HOME SCREEN               ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="screen-home" class="screen active">
+    <div class="screen-bg">
+      <div class="bg-orb orb-1"></div>
+      <div class="bg-orb orb-2"></div>
+      <div class="bg-orb orb-3"></div>
+      <div class="bg-grid"></div>
+    </div>
+
+    <div class="home-content">
+      <!-- Logo -->
+      <div class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 100 100" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="15" fill="#161616"/>
+            <circle cx="70" cy="30" r="15" fill="#161616"/>
+            <rect x="20" y="60" width="60" height="15" fill="#161616" transform="rotate(-15 50 67)" rx="4"/>
+          </svg>
+        </div>
+        <h1 class="logo-title">Doodleracer</h1>
+      </div>
+
+      <!-- Player dots preview -->
+      <div class="dots-preview">
+        <div class="dot-preview dot-blue">
+          <span class="dot-circle blue"></span>
+          <span class="dot-label">YOU</span>
+        </div>
+        <span class="vs-text">VS</span>
+        <div class="dot-preview dot-red">
+          <span class="dot-circle red"></span>
+          <span class="dot-label">OPPONENT</span>
+        </div>
+      </div>
+
+      <!-- Features replaced by quotes -->
+      <div class="features quote-container" style="min-height: 48px; display: flex; align-items: center; justify-content: center;">
+        <p id="random-quote" class="feature-item" style="text-align: center; width: 100%; justify-content: center; background: transparent; transition: opacity 0.5s ease; color: var(--text-primary); font-weight: 600;">
+          Finish line in sight. Good luck getting there.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <button id="btn-play" class="btn-hand-drawn">
+        <!-- Hand-drawn blob background (Tracing 2) -->
+        <svg class="btn-bg-svg" viewBox="0 0 200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 25,5 C 75,2 145,5 175,8 C 195,10 195,25 192,42 C 188,58 135,55 85,58 C 35,60 5,55 2,35 C -2,15 10,7 25,5 Z" fill="#1F1F1F" />
+        </svg>
+        <span class="btn-content">
+          <!-- Hand-drawn play icon (Tracing 3) -->
+          <svg class="btn-play-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fdfdfd" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6,4 C 11,8 17,11 19,12 C 17,13 11,16 6,20 C 5,12 5,8 6,4 Z" />
+          </svg>
+          <span class="btn-text">Find match</span>
+        </span>
+      </button>
+
+      <p class="home-hint">Tap to race against a real player</p>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║         MATCHMAKING SCREEN          ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="screen-matchmaking" class="screen">
+    <div class="screen-bg">
+      <div class="bg-orb orb-1"></div>
+      <div class="bg-orb orb-2"></div>
+    </div>
+
+    <div class="mm-content">
+      <h2 class="mm-title">Finding Opponent<span id="mm-dots"></span></h2>
+      
+      <!-- Quotes -->
+      <div class="mm-status-card quote-container" style="min-height: 48px; display: flex; align-items: center; justify-content: center; background: transparent;">
+        <p id="mm-random-quote" style="text-align: center; width: 100%; transition: opacity 0.5s ease; color: var(--text-primary); font-weight: 600;">
+          Start at the same point.
+        </p>
+      </div>
+
+      <button id="btn-cancel-mm" class="btn-hand-drawn" style="margin-top: 40px;">
+        <!-- Hand-drawn blob background -->
+        <svg class="btn-bg-svg" viewBox="0 0 200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 25,5 C 75,2 145,5 175,8 C 195,10 195,25 192,42 C 188,58 135,55 85,58 C 35,60 5,55 2,35 C -2,15 10,7 25,5 Z" fill="#E4E4E4" />
+        </svg>
+        <span class="btn-content">
+          <!-- Hand-drawn cross icon -->
+          <svg class="btn-play-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1F1F1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 7,7 C 12,11 15,14 17,17 M 17,7 C 13,11 10,14 7,17" />
+          </svg>
+          <span class="btn-text" style="color: #1F1F1F; text-transform: capitalize;">Cancel</span>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║           GAME SCREEN               ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="screen-game" class="screen">
+    <!-- Canvas wrapper — scales to fit portrait screen -->
+    <div id="canvas-wrapper">
+      <canvas id="game-canvas" width="360" height="640"></canvas>
+
+      <!-- Countdown overlay (positioned over canvas) -->
+      <div id="countdown-overlay" class="countdown-overlay" style="display:none;">3</div>
+
+      <!-- Player badge (shows which player you are) -->
+      <div id="player-badge" class="player-badge">
+        <span class="badge-dot badge-dot-blue"></span>
+        <span id="badge-label">YOU</span>
+      </div>
+
+      <!-- Opponent indicator -->
+      <div id="opponent-indicator" class="opponent-indicator">
+        <span class="badge-dot badge-dot-red"></span>
+        <span>OPPONENT</span>
+      </div>
+    </div>
+
+    <!-- Joystick area (below canvas) -->
+    <div id="joystick-container" class="joystick-container"></div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!-- ║           RESULT SCREEN             ║ -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="screen-result" class="screen">
+    <div class="screen-bg">
+      <div class="bg-orb orb-1"></div>
+      <div class="bg-orb orb-2"></div>
+      <div class="bg-orb orb-3"></div>
+    </div>
+
+    <div class="result-content">
+      <!-- Trophy / Skull animation -->
+      <div class="result-icon-wrap" style="position: relative; width: 150px; height: 150px; margin: 0 auto 20px;">
+        <img class="result-icon" id="result-icon" src="/images/win/trophy.png" alt="Trophy" style="width: 100%; height: 100%; object-fit: contain; z-index: 10; position: relative;" />
+        <div class="result-particles" id="result-particles"></div>
+      </div>
+
+      <!-- Result text -->
+      <h2 class="result-title" id="result-title">YOU WIN!</h2>
+      <div class="result-subtitle quote-container" style="min-height: 48px; display: flex; align-items: center; justify-content: center;">
+        <p id="result-random-quote" style="text-align: center; width: 100%; transition: opacity 0.5s ease; color: var(--text-primary); font-weight: 600;">
+          You absolutely crushed it!
+        </p>
+      </div>
+      <div class="result-time" id="result-time">Match time: —</div>
+
+      <!-- Divider -->
+      <div class="result-divider"></div>
+
+      <!-- Actions -->
+      <button id="btn-rematch" class="btn-hand-drawn" style="margin-bottom: 20px;">
+        <!-- Hand-drawn blob background -->
+        <svg class="btn-bg-svg" viewBox="0 0 200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 25,5 C 75,2 145,5 175,8 C 195,10 195,25 192,42 C 188,58 135,55 85,58 C 35,60 5,55 2,35 C -2,15 10,7 25,5 Z" fill="#1F1F1F" />
+        </svg>
+        <span class="btn-content">
+          <!-- Hand-drawn play icon -->
+          <svg class="btn-play-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fdfdfd" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6,4 C 11,8 17,11 19,12 C 17,13 11,16 6,20 C 5,12 5,8 6,4 Z" />
+          </svg>
+          <span class="btn-text">Play again</span>
+        </span>
+      </button>
+      
+      <button id="btn-home" style="background: transparent; border: none; color: #1F1F1F; font-family: var(--font-main); font-size: 18px; font-weight: 700; cursor: pointer; text-transform: capitalize; transition: opacity 0.2s;">
+        Back to home
+      </button>
+    </div>
+  </section>
+
+  <!-- Sound toggle button -->
+  <button id="btn-sound-toggle" class="btn-sound-toggle" aria-label="Toggle sound">
+    <span id="sound-icon">🔊</span>
+  </button>
+
+  <!-- Global notification bar -->
+  <div id="notif-bar" class="notif-bar" style="opacity:0"></div>
+
+  <!-- Socket.IO client (loaded from server) -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Game modules (ES module entry) -->
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
