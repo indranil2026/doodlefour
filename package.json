@@ -1,0 +1,16 @@
+{
+  "name": "doodlefour-race",
+  "version": "1.0.0",
+  "description": "Real-time 2-player mobile obstacle-navigation race game",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "start:portable": "\"C:\\Users\\isa\\node-v20.17.0-win-x64\\node.exe\" server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "uuid": "^9.0.0"
+  }
+}
